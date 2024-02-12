@@ -1,38 +1,56 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="/css/style.css" />
+
 </head>
 
 <body>
   <div>
-    <header>
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
+
+    <div>The Tech Blog</div>
+    <button></button>
     <div>
-      <!-- Render the sub layout -->
-      {{{ body }}}
+      <ul>
+        <li>
+          <a aria-current="page" href="/">Home</a>
+        </li>
+        {{#if logged_in}}
+
+        <li>
+          <a href="/dashboard">Dashboard</a>
+        </li>
+
+        {{! need to add css }}
+        <li>
+          <button id="logout">Logout</button>
+        </li>
+
+        {{else}}
+        <li>
+          <a href="/login">Login</a>
+        </li>
+
+        <li>
+          <a href="/signUp">Sign Up</a>
+        </li>
+        {{/if}}
+
+      </ul>
     </div>
   </div>
+  </nav>
 
-  <!-- Render script for logged in users only -->
+  <main>
+    {{{body}}}
+  </main>
+  <footer>
+  </footer>
+  </div>
+
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
